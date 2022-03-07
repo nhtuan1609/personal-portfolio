@@ -1,15 +1,23 @@
 <template>
   <v-app dark>
-    <v-app-bar fixed app>
-      <v-btn text>Personal Portfolio</v-btn>
+    <v-app-bar fixed app height="60">
+      <h2 style="cursor: pointer" @click="$router.push('/')">{{ title }}</h2>
       <v-spacer />
-      <v-btn text>Home</v-btn>
-      <v-btn text>About</v-btn>
-      <v-btn text>Skills</v-btn>
-      <v-btn text>Experience</v-btn>
-      <v-btn text>Projects</v-btn>
-      <v-btn text>Contact</v-btn>
+      <template v-if="$vuetify.breakpoint.mdAndUp">
+        <v-btn v-for="(session, index) in sessions" :key="index" text :to="session.path">{{ session.name }}</v-btn>
+      </template>
+      <v-app-bar-nav-icon v-else @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
+
+    <v-navigation-drawer v-model="drawer" absolute right temporary>
+      <v-list nav dense>
+        <v-list-item v-for="(session, index) in sessions" :key="index">
+          <v-list-item-content>
+            <v-btn text :to="session.path">{{ session.name }}</v-btn>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
 
     <v-main>
       <v-container>
@@ -25,6 +33,48 @@
 
 <script>
 export default {
-  name: 'DefaultLayout'
+  name: 'DefaultLayout',
+  data() {
+    return {
+      drawer: false,
+      title: 'Personal Portfolio',
+      sessions: [
+        {
+          name: 'Home',
+          path: '#home'
+        },
+        {
+          name: 'About',
+          path: '#about'
+        },
+        {
+          name: 'Skills',
+          path: '#skills'
+        },
+        {
+          name: 'Experience',
+          path: '#experience'
+        },
+        {
+          name: 'Projects',
+          path: '#projects'
+        },
+        {
+          name: 'Contact',
+          path: '#contact'
+        }
+      ]
+    }
+  },
+  head() {
+    return {
+      title: this.title
+    }
+  }
 }
 </script>
+<style lang="scss">
+:root {
+  --height-application-header: 60px;
+}
+</style>
