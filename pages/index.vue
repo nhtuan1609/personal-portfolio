@@ -1,9 +1,14 @@
 <template>
-  <div></div>
+  <div>
+    <home-message />
+  </div>
 </template>
 
 <script>
+import HomeMessage from '~/components/HomeMessage.vue'
+
 export default {
-  name: 'HomePage'
+  name: 'HomePage',
+  components: { HomeMessage }
 }
 </script>

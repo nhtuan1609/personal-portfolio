@@ -20,12 +20,12 @@
     </v-navigation-drawer>
 
     <v-main>
-      <v-container>
+      <v-container class="pa-0">
         <Nuxt />
       </v-container>
     </v-main>
 
-    <v-footer app>
+    <v-footer app height="40">
       <span>&copy; {{ new Date().getFullYear() }} NGUYEN HOANG TUAN</span>
     </v-footer>
   </v-app>
@@ -76,5 +76,19 @@ export default {
 <style lang="scss">
 :root {
   --height-application-header: 60px;
+  --height-application-footer: 40px;
+
+  --color-background: #333;
+  --color-text: #888;
+}
+</style>
+
+<style lang="scss" scoped>
+.v-application {
+  font-family: Roboto, Arial, sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--color-text) !important;
+  background-color: var(--color-background) !important;
 }
 </style>
