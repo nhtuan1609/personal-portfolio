@@ -41,16 +41,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.message__title {
-  font-size: 5rem;
-  text-align: center;
-  color: var(--color-text);
-}
+.message {
+  &__title {
+    font-size: 5rem;
+    text-align: center;
+    color: var(--color-text);
+  }
 
-.message__sub-title {
-  height: 60px;
-  font-size: 3rem;
-  text-align: center;
-  color: var(--color-text);
+  &__sub-title {
+    height: 60px;
+    font-size: 3rem;
+    text-align: center;
+    color: var(--color-text);
+  }
 }
 </style>

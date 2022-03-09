@@ -1,7 +1,9 @@
 <template>
-  <div>
-    <home-message />
-  </div>
+  <v-layout fill-height>
+    <v-container style="margin-top: -80px">
+      <home-message id="home" />
+    </v-container>
+  </v-layout>
 </template>
 
 <script>
