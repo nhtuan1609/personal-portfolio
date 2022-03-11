@@ -8,7 +8,7 @@
             class="about__image"
             max-width="80%"
             contain
-            :src="require('~/static/profile/avatar.jpg')"
+            :src="require('~/assets/image/profile/avatar.jpg')"
             alt="avatar-image"
           />
         </v-col>

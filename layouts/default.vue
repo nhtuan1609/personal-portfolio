@@ -80,6 +80,7 @@ export default {
 
   --color-background: #333;
   --color-text: #888;
+  --color-text-hover: #aaa;
 }
 </style>
 

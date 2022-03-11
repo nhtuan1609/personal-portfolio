@@ -3,6 +3,7 @@
     <v-container style="margin-top: -80px">
       <home-message id="home" />
       <about-me id="about" />
+      <my-skills id="skills" />
     </v-container>
   </v-layout>
 </template>
@@ -10,9 +11,10 @@
 <script>
 import HomeMessage from '~/components/HomeMessage.vue'
 import AboutMe from '~/components/AboutMe.vue'
+import MySkills from '~/components/MySkills.vue'
 
 export default {
   name: 'HomePage',
-  components: { HomeMessage, AboutMe }
+  components: { HomeMessage, AboutMe, MySkills }
 }
 </script>
