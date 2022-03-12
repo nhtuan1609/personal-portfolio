@@ -79,8 +79,10 @@ export default {
   --height-application-footer: 40px;
 
   --color-background: #333;
+  --color-background-secondary: #555;
   --color-text: #888;
   --color-text-hover: #aaa;
+  --color-border: #555;
 }
 </style>
 
