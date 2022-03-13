@@ -83,10 +83,25 @@ export default {
   --color-text: #888;
   --color-text-hover: #aaa;
   --color-border: #555;
+  --color-base: var(--v-_base-base);
+  --color-scrollbar-thumb: #888;
 }
 
 html {
+  overflow-y: auto;
   scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--color-base);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--color-scrollbar-thumb);
+    border-radius: 4px;
+  }
 }
 </style>
 
