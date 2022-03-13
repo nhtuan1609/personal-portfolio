@@ -8,28 +8,26 @@
           :key="skillGroupIndex"
           cols="12"
           md="6"
-          class="d-flex flex-column justify-center"
+          class="d-flex flex-column justify-center py-0"
         >
-          <div>
-            <v-card v-for="(group, groupIndex) in skillGroup" :key="groupIndex" class="my-6">
-              <v-card-title class="justify-center text-h4 font-weight-bold" style="color: var(--color-text)">
-                {{ group.name }}
-              </v-card-title>
-              <v-divider />
-              <v-card-text>
-                <a
-                  v-for="(skill, skillIndex) in group.skills"
-                  :key="skillIndex"
-                  :href="skill.href"
-                  target="_blank"
-                  class="skill"
-                >
-                  <img width="50px" height="50px" :src="skill.logoSrc" alt="logo-image" />
-                  <h2>{{ skill.name }}</h2>
-                </a>
-              </v-card-text>
-            </v-card>
-          </div>
+          <v-card v-for="(group, groupIndex) in skillGroup" :key="groupIndex" class="my-3">
+            <v-card-title class="justify-center text-h4 font-weight-bold" style="color: var(--color-text)">
+              {{ group.name }}
+            </v-card-title>
+            <v-divider />
+            <v-card-text>
+              <a
+                v-for="(skill, skillIndex) in group.skills"
+                :key="skillIndex"
+                :href="skill.href"
+                target="_blank"
+                class="skill"
+              >
+                <img width="50px" height="50px" :src="skill.logoSrc" alt="logo-image" />
+                <h2>{{ skill.name }}</h2>
+              </a>
+            </v-card-text>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
