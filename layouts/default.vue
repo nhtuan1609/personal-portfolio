@@ -4,7 +4,15 @@
       <h2 style="cursor: pointer" @click="$router.push('/')">{{ title }}</h2>
       <v-spacer />
       <template v-if="$vuetify.breakpoint.mdAndUp">
-        <v-btn v-for="(session, index) in sessions" :key="index" text :to="session.path">{{ session.name }}</v-btn>
+        <v-btn
+          v-for="(session, index) in sessions"
+          :key="index"
+          text
+          :to="'#' + session.id"
+          @click="scrollToView(session.id)"
+        >
+          {{ session.name }}
+        </v-btn>
       </template>
       <v-app-bar-nav-icon v-else @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
@@ -13,7 +21,7 @@
       <v-list nav dense>
         <v-list-item v-for="(session, index) in sessions" :key="index">
           <v-list-item-content>
-            <v-btn text :to="session.path">{{ session.name }}</v-btn>
+            <v-btn text :to="'#' + session.id" @click="scrollToView(session.id)">{{ session.name }}</v-btn>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -41,27 +49,27 @@ export default {
       sessions: [
         {
           name: 'Home',
-          path: '#home'
+          id: 'home'
         },
         {
           name: 'About',
-          path: '#about'
+          id: 'about'
         },
         {
           name: 'Skills',
-          path: '#skills'
+          id: 'skills'
         },
         {
           name: 'Experience',
-          path: '#experience'
+          id: 'experience'
         },
         {
           name: 'Projects',
-          path: '#projects'
+          id: 'projects'
         },
         {
           name: 'Contact',
-          path: '#contact'
+          id: 'contact'
         }
       ]
     }
@@ -69,6 +77,11 @@ export default {
   head() {
     return {
       title: this.title
+    }
+  },
+  methods: {
+    scrollToView(id) {
+      document.getElementById(id)?.scrollIntoView()
     }
   }
 }
