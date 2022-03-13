@@ -84,6 +84,10 @@ export default {
   --color-text-hover: #aaa;
   --color-border: #555;
 }
+
+html {
+  scroll-behavior: smooth;
+}
 </style>
 
 <style lang="scss" scoped>
