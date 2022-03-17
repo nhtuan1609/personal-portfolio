@@ -15,10 +15,10 @@
         <v-col cols="12" md="6" class="d-flex align-center">
           <div class="about__information">
             Hi there! <strong>Nguyen Hoang Tuan</strong> is my full name. I was born and brought up in Can Tho city. And
-            now I am working as an Web Developer.
+            now I am working as a Web Developer.
             <br />
             <br />I love learning about new technologies, facing problems and solving them, and how I can use them to
-            create better and scalable products. I am looking for an environment where I can show all my technical
+            create better and scalable products. I am looking for the environment where I can show all my technical
             skills.
           </div>
         </v-col>

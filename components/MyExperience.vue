@@ -29,7 +29,7 @@
     </div>
 
     <div class="experience">
-      <h1 class="group">CETIFICATIONS</h1>
+      <h1 class="group">CERTIFICATIONS</h1>
       <v-card v-for="(group, groupIndex) in certificationGroups" :key="groupIndex">
         <v-card-title>
           <h2 class="group__title">{{ group.name }}</h2>
@@ -67,7 +67,7 @@ export default {
         {
           name: 'Emage Development Co., Ltd',
           position: 'Application Developer',
-          teachnology: 'MFC, C++ and Python',
+          teachnology: 'MFC and C++',
           duration: 'March 2020 - June 2021',
           description: [
             'Develop and enhance multiple UI features using MFC and C++.',
@@ -91,7 +91,7 @@ export default {
         {
           name: 'YC Solutions Company Limited',
           position: 'Web Developer',
-          teachnology: 'JavaScript, NuxtJS, Vuetify, Firebase',
+          teachnology: 'JavaScript, NuxtJS, Vuetify and Firebase',
           duration: 'July 2021 - Present',
           description: [
             'Develop user interface components of the ERP web application using NuxtJS and Vuetify based on Figma design.',
