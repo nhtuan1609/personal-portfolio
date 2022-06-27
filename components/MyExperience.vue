@@ -13,11 +13,11 @@
           <p v-if="experience.position"><strong>Position: </strong>{{ experience.position }}</p>
           <p v-if="experience.status"><strong>Status: </strong>{{ experience.status }}</p>
           <p v-if="experience.major"><strong>Major: </strong>{{ experience.major }}</p>
-          <p v-if="experience.typeOfdegree"><strong>Type of degree: </strong>{{ experience.typeOfdegree }}</p>
+          <p v-if="experience.typeOfDegree"><strong>Type of degree: </strong>{{ experience.typeOfDegree }}</p>
           <p v-if="experience.graduationClassification">
             <strong>Graduation classification: </strong>{{ experience.graduationClassification }}
           </p>
-          <p v-if="experience.teachnology"><strong>Teachnology: </strong>{{ experience.teachnology }}</p>
+          <p v-if="experience.technology"><strong>Technology: </strong>{{ experience.technology }}</p>
           <p v-if="experience.description"><strong>Description: </strong></p>
           <ul>
             <li v-for="(description, descriptionIndex) in experience.description" :key="descriptionIndex">
@@ -59,7 +59,7 @@ export default {
         {
           name: 'Bach Khoa University',
           major: 'Control Engineering & Automation',
-          typeOfdegree: 'Bachelor of Engineering - Honors Program',
+          typeOfDegree: 'Bachelor of Engineering - Honors Program',
           status: 'Graduated',
           graduationClassification: '8.65/10.00 - Very good',
           duration: 'August 2016 - November 2020'
@@ -67,19 +67,19 @@ export default {
         {
           name: 'Emage Development Co., Ltd',
           position: 'Application Developer',
-          teachnology: 'MFC and C++',
+          technology: 'MFC and C++',
           duration: 'March 2020 - June 2021',
           description: [
             'Develop and enhance multiple UI features using MFC and C++.',
             'Provided application maintenance while working as Production Support.',
-            'Research and implement new image processing algorithom to the application.',
+            'Research and implement new image processing algorithm to the application.',
             'Integrate deep learning method into the application using CMD or TCP.'
           ]
         },
         {
           name: 'Front-End Web Development Course',
           status: 'Completed',
-          teachnology: 'HTML, CSS, JavaScript and React.js',
+          technology: 'HTML, CSS, JavaScript and React.js',
           duration: 'October 2020 - April 2021',
           description: [
             'Build a front-end website and responsive web design using HTML and CSS.',
@@ -91,7 +91,7 @@ export default {
         {
           name: 'YC Solutions Company Limited',
           position: 'Web Developer',
-          teachnology: 'JavaScript, NuxtJS, Vuetify and Firebase',
+          technology: 'JavaScript, NuxtJS, Vuetify and Firebase',
           duration: 'July 2021 - Present',
           description: [
             'Develop user interface components of the ERP web application using NuxtJS and Vuetify based on Figma design.',
