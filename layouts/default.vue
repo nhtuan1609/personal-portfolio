@@ -33,6 +33,8 @@
       </v-container>
     </v-main>
 
+    <snack-bar />
+
     <v-footer app height="40">
       <span>&copy; {{ new Date().getFullYear() }} NGUYEN HOANG TUAN</span>
     </v-footer>
@@ -40,8 +42,11 @@
 </template>
 
 <script>
+import SnackBar from '~/components/layouts/SnackBar.vue'
+
 export default {
   name: 'DefaultLayout',
+  components: { SnackBar },
   data() {
     return {
       drawer: false,

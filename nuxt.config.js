@@ -23,7 +23,10 @@ export default {
   css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/commonValidations.js', ssr: false }],
+  plugins: [
+    { src: '~/plugins/commonValidations.js', ssr: false },
+    { src: '~/plugins/commonUtils.js', ssr: false }
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: false,

@@ -3,12 +3,17 @@
     <v-main>
       <Nuxt />
     </v-main>
+
+    <snack-bar />
   </v-app>
 </template>
 
 <script>
+import SnackBar from '~/components/layouts/SnackBar.vue'
+
 export default {
   name: 'AuthenticationLayout',
+  components: { SnackBar },
   data() {
     return {
       title: 'Personal Portfolio'
