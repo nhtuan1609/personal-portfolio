@@ -16,7 +16,7 @@
       <v-list nav dense>
         <v-list-item v-for="(session, index) in sessions" :key="index">
           <v-list-item-content>
-            <v-btn text @click="scrollToView(session.id)">{{ session.name }}</v-btn>
+            <v-btn text @click="() => selectSession(session.id)">{{ session.name }}</v-btn>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -86,8 +86,8 @@ export default {
   },
   methods: {
     /**
-     * scroll to view section by id
-     * @param {string} id - section id
+     * scroll to view session by id
+     * @param {string} id - session id
      * @return {void}
      */
     scrollToView(id) {
@@ -104,6 +104,15 @@ export default {
           this.$router.push('#')
         }
       })
+    },
+    /**
+     * handle select session
+     * @param {string} id - session id
+     * @return {void}
+     */
+    selectSession(id) {
+      this.scrollToView(id)
+      this.drawer = false
     }
   }
 }
