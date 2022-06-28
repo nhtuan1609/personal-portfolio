@@ -102,8 +102,6 @@ export default {
           this.$showErrorNotification('Login failed')
           this.isShowErrorMessage = true
         }
-        this.$showErrorNotification('Login failed')
-        this.isShowErrorMessage = true
       })
     }
   }
