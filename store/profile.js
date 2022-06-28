@@ -15,6 +15,9 @@ export const getters = {
 export const mutations = {
   setUser(state, user) {
     state.user = user
+  },
+  clearAll(state) {
+    state.user = {}
   }
 }
 
@@ -60,6 +63,7 @@ export const actions = {
         }
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log('Login error', error)
       })
 
@@ -82,6 +86,7 @@ export const actions = {
         isSuccess = true
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log('Login error', error)
       })
 

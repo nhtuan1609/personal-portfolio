@@ -86,6 +86,10 @@ export default {
     }
   },
   methods: {
+    /**
+     * login account
+     * @return {void}
+     */
     login() {
       if (!this.$refs.form.validate()) return
 

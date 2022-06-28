@@ -4,15 +4,10 @@
       <h2 style="cursor: pointer" @click="$router.push('/')">{{ title }}</h2>
       <v-spacer />
       <template v-if="$vuetify.breakpoint.mdAndUp">
-        <v-btn
-          v-for="(session, index) in sessions"
-          :key="index"
-          text
-          :to="'#' + session.id"
-          @click="scrollToView(session.id)"
-        >
+        <v-btn v-for="(session, index) in sessions" :key="index" text @click="scrollToView(session.id)">
           {{ session.name }}
         </v-btn>
+        <v-btn v-if="user.email" text color="red" @click="logout">Logout</v-btn>
       </template>
       <v-app-bar-nav-icon v-else @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
     </v-app-bar>
@@ -21,7 +16,7 @@
       <v-list nav dense>
         <v-list-item v-for="(session, index) in sessions" :key="index">
           <v-list-item-content>
-            <v-btn text :to="'#' + session.id" @click="scrollToView(session.id)">{{ session.name }}</v-btn>
+            <v-btn text @click="scrollToView(session.id)">{{ session.name }}</v-btn>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -84,9 +79,31 @@ export default {
       title: this.title
     }
   },
+  computed: {
+    user() {
+      return this.$store.getters['profile/getUser']
+    }
+  },
   methods: {
+    /**
+     * scroll to view section by id
+     * @param {string} id - section id
+     * @return {void}
+     */
     scrollToView(id) {
       document.getElementById(id)?.scrollIntoView()
+    },
+    /**
+     * log out account
+     * @return {void}
+     */
+    logout() {
+      this.$store.dispatch('profile/logout').then((isSuccess) => {
+        if (isSuccess) {
+          this.$showSuccessNotification('Log out successfully')
+          this.$router.push('#')
+        }
+      })
     }
   }
 }
