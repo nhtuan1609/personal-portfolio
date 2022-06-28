@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app dark :class="[{ 'show-scroll-bar': drawer }]">
     <v-app-bar fixed app height="60">
       <h2 style="cursor: pointer" @click="$router.push('/')">{{ title }}</h2>
       <v-spacer />
@@ -138,6 +138,11 @@ html {
     border-radius: 4px;
   }
 }
+
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
+}
 </style>
 
 <style lang="scss" scoped>
@@ -147,5 +152,20 @@ html {
   font-size: 14px;
   color: var(--color-text) !important;
   background-color: var(--color-background) !important;
+  &.show-scroll-bar {
+    overflow-y: scroll;
+    &::-webkit-scrollbar {
+      width: 10px;
+      background-color: transparent;
+    }
+    &::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+      background-color: var(--color-base);
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-scrollbar-thumb);
+      border-radius: 4px;
+    }
+  }
 }
 </style>
