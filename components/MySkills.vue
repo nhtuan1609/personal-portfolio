@@ -47,14 +47,25 @@ export default {
           name: 'Frontend',
           skills: [
             {
-              name: 'NuxtJS',
-              href: 'https://nuxtjs.org/',
-              logoSrc: require('~/assets/image/skills/nuxtjs.svg')
+              name: 'Vue.js',
+              href: 'https://vuejs.org/',
+              logoSrc: require('~/assets/image/skills/vue.svg')
+            },
+            {
+              name: 'React',
+              href: 'https://reactjs.org/',
+              logoSrc: require('~/assets/image/skills/react.svg')
             },
             {
               name: 'Vuetify',
               href: 'https://vuetifyjs.com/',
               logoSrc: require('~/assets/image/skills/vuetify.svg')
+            },
+
+            {
+              name: 'Material UI',
+              href: 'https://mui.com/',
+              logoSrc: require('~/assets/image/skills/material-ui.svg')
             }
           ]
         },
@@ -65,6 +76,11 @@ export default {
               name: 'Firebase',
               href: 'https://firebase.google.com/',
               logoSrc: require('~/assets/image/skills/firebase.svg')
+            },
+            {
+              name: 'Spring',
+              href: 'https://spring.io/',
+              logoSrc: require('~/assets/image/skills/spring.svg')
             }
           ]
         }
@@ -79,6 +95,11 @@ export default {
               name: 'JavaScript',
               href: 'https://www.javascript.com/',
               logoSrc: require('~/assets/image/skills/javascript.svg')
+            },
+            {
+              name: 'Java',
+              href: 'https://www.javascript.com/',
+              logoSrc: require('~/assets/image/skills/java.svg')
             }
           ]
         },
