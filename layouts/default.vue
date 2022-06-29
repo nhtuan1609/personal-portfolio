@@ -1,7 +1,9 @@
 <template>
   <v-app dark :class="[{ 'show-scroll-bar': drawer }]">
     <v-app-bar fixed app height="60">
-      <h2 style="cursor: pointer" @click="$router.push('/')">{{ title }}</h2>
+      <h1 style="cursor: pointer; user-select: none" class="font-weight-thin" @click="scrollToView('home')">
+        {{ title }}
+      </h1>
       <v-spacer />
       <template v-if="$vuetify.breakpoint.mdAndUp">
         <v-btn v-for="(session, index) in sessions" :key="index" text @click="scrollToView(session.id)">
@@ -30,7 +32,7 @@
 
     <snack-bar />
 
-    <v-footer app height="40">
+    <v-footer app height="40" class="justify-end">
       <span>&copy; {{ new Date().getFullYear() }} NGUYEN HOANG TUAN</span>
     </v-footer>
   </v-app>
@@ -45,7 +47,7 @@ export default {
   data() {
     return {
       drawer: false,
-      title: 'Personal Portfolio',
+      title: 'tuan______ne',
       sessions: [
         {
           name: 'Home',
