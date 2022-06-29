@@ -64,6 +64,10 @@ export default {
           id: 'experience'
         },
         {
+          name: 'Education',
+          id: 'education'
+        },
+        {
           name: 'Projects',
           id: 'projects'
         },

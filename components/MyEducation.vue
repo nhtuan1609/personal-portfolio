@@ -1,6 +1,6 @@
 <template>
   <session-content>
-    <template #title>EXPERIENCE</template>
+    <template #title>EDUCATION</template>
     <div class="experience">
       <v-card v-for="(experience, index) in experienceList" :key="index">
         <v-card-title>
@@ -25,6 +25,20 @@
           </ul>
         </v-card-text>
       </v-card>
+
+      <v-card v-for="(group, groupIndex) in certificationGroups" :key="groupIndex">
+        <v-card-title>
+          <h2 class="group__title">{{ group.name }}</h2>
+        </v-card-title>
+        <v-divider />
+        <v-card-text class="group__content">
+          <div v-for="(certification, index) in group.certifications" :key="index" class="group__content-tag">
+            <a :href="certification.href" target="_blank">
+              {{ certification.name }}
+            </a>
+          </div>
+        </v-card-text>
+      </v-card>
     </div>
   </session-content>
 </template>
@@ -33,32 +47,50 @@
 import SessionContent from '~/components/commons/SessionContent.vue'
 
 export default {
-  name: 'MyExperience',
+  name: 'MyEducation',
   components: { SessionContent },
   computed: {
     experienceList() {
       return [
         {
-          name: 'Emage Development Co., Ltd',
-          position: 'Application Developer',
-          technology: 'MFC and C++',
-          duration: 'March 2020 - June 2021',
-          description: [
-            'Develop and enhance multiple UI features using MFC and C++.',
-            'Provided application maintenance while working as Production Support.',
-            'Research and implement new image processing algorithm to the application.',
-            'Integrate deep learning method into the application using CMD or TCP.'
-          ]
+          name: 'Bach Khoa University',
+          major: 'Control Engineering & Automation',
+          typeOfDegree: 'Bachelor of Engineering - Honors Program',
+          status: 'Graduated',
+          graduationClassification: '8.65/10.00 - Very good',
+          duration: 'September 2016 - November 2020'
         },
         {
-          name: 'YC Solutions Company Limited',
-          position: 'Web Developer',
-          technology: 'JavaScript, NuxtJS, Vuetify and Firebase',
-          duration: 'July 2021 - Present',
+          name: 'Front-End Web Development Course',
+          status: 'Completed',
+          technology: 'HTML, CSS, JavaScript and React.js',
+          duration: 'October 2020 - April 2021',
           description: [
-            'Develop user interface components of the ERP web application using NuxtJS and Vuetify based on Figma design.',
-            'Write high-performance, reusable code for UI components.',
-            'Handle process data in backend with Firebase.'
+            'Build a front-end website and responsive web design using HTML and CSS.',
+            'Implement a functional front-end website using React.',
+            'Consume API RESTful in React.',
+            'Design the architecture for the website using React and Redux.'
+          ]
+        }
+      ]
+    },
+    certificationGroups() {
+      return [
+        {
+          name: 'freeCodeCamp',
+          certifications: [
+            {
+              name: 'View Responsive Web Design Certification',
+              href: 'https://www.freecodecamp.org/certification/nhtuan1609/responsive-web-design'
+            },
+            {
+              name: 'View JavaScript Algorithms and Data Structures Certification',
+              href: 'https://www.freecodecamp.org/certification/nhtuan1609/javascript-algorithms-and-data-structures'
+            },
+            {
+              name: 'View Front End Development Libraries Certification',
+              href: 'https://www.freecodecamp.org/certification/nhtuan1609/front-end-development-libraries'
+            }
           ]
         }
       ]

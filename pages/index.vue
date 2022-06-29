@@ -5,6 +5,7 @@
       <about-me id="about" />
       <my-skills id="skills" />
       <my-experience id="experience" />
+      <my-education id="education" />
       <my-projects id="projects" />
       <my-contact id="contact" />
     </v-container>
@@ -16,11 +17,12 @@ import HomeMessage from '~/components/HomeMessage.vue'
 import AboutMe from '~/components/AboutMe.vue'
 import MySkills from '~/components/MySkills.vue'
 import MyExperience from '~/components/MyExperience.vue'
+import MyEducation from '~/components/MyEducation.vue'
 import MyProjects from '~/components/MyProjects.vue'
 import MyContact from '~/components/MyContact.vue'
 
 export default {
   name: 'HomePage',
-  components: { HomeMessage, AboutMe, MySkills, MyExperience, MyProjects, MyContact }
+  components: { HomeMessage, AboutMe, MySkills, MyExperience, MyEducation, MyProjects, MyContact }
 }
 </script>
