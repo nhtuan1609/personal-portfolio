@@ -26,7 +26,7 @@
         </v-card-text>
       </v-card>
 
-      <v-card v-for="(group, groupIndex) in certificationGroups" :key="groupIndex">
+      <v-card v-for="(group, groupIndex) in certificationGroups" :key="experienceList.length + groupIndex">
         <v-card-title>
           <h2 class="group__title">{{ group.name }}</h2>
         </v-card-title>
@@ -120,6 +120,7 @@ export default {
     }
     &__content {
       font-size: 1.2rem;
+      color: var(--color-text);
       & ul {
         line-height: 2rem;
       }
