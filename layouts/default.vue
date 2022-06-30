@@ -135,6 +135,7 @@ export default {
   --color-border: #555;
   --color-base: var(--v-_base-base);
   --color-scrollbar-thumb: #888;
+  --color-button-text: #ccc;
 }
 
 html {
@@ -152,11 +153,6 @@ html {
     background-color: var(--color-scrollbar-thumb);
     border-radius: 4px;
   }
-}
-
-body.modal-open {
-  overflow: hidden;
-  height: 100vh;
 }
 </style>
 
@@ -182,5 +178,9 @@ body.modal-open {
       border-radius: 4px;
     }
   }
+}
+
+::v-deep .theme--dark.v-btn {
+  color: var(--color-button-text);
 }
 </style>
