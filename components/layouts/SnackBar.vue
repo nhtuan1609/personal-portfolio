@@ -11,7 +11,6 @@
 </template>
 
 <script>
-// アプリケーションからユーザへ通知するコンポーネント
 export default {
   name: 'SnackBar',
   computed: {

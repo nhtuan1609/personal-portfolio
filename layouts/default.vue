@@ -1,5 +1,7 @@
 <template>
   <v-app dark :class="[{ 'show-scroll-bar': drawer }]">
+    <my-background />
+
     <v-app-bar fixed app height="60">
       <h1 style="cursor: pointer; user-select: none" class="font-weight-thin" @click="scrollToView('home')">
         {{ title }}
@@ -31,19 +33,16 @@
     </v-main>
 
     <snack-bar />
-
-    <v-footer app height="40" class="justify-end">
-      <span>&copy; {{ new Date().getFullYear() }} NGUYEN HOANG TUAN</span>
-    </v-footer>
   </v-app>
 </template>
 
 <script>
 import SnackBar from '~/components/layouts/SnackBar.vue'
+import MyBackground from '~/components/layouts/MyBackground.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { SnackBar },
+  components: { SnackBar, MyBackground },
   data() {
     return {
       drawer: false,
@@ -162,7 +161,6 @@ html {
   font-style: normal;
   font-size: 14px;
   color: var(--color-text) !important;
-  background-color: var(--color-background) !important;
   &.show-scroll-bar {
     overflow-y: scroll;
     &::-webkit-scrollbar {
