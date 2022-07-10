@@ -1,22 +1,16 @@
 <template>
-  <v-app dark :class="[{ 'show-scroll-bar': drawer }]">
+  <v-app dark>
     <my-background />
 
-    <v-app-bar fixed app height="60">
-      <h1 style="cursor: pointer; user-select: none" class="font-weight-thin" @click="scrollToView('home')">
-        {{ title }}
-      </h1>
-      <v-spacer />
-      <template v-if="$vuetify.breakpoint.mdAndUp">
-        <v-btn v-for="(session, index) in sessions" :key="index" text @click="scrollToView(session.id)">
-          {{ session.name }}
-        </v-btn>
-        <v-btn v-if="user.email" text color="red" @click="logout">Logout</v-btn>
-      </template>
-      <v-app-bar-nav-icon v-else @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
-    </v-app-bar>
+    <app-bar
+      :sessions="sessions"
+      :drawer="drawer"
+      :scroll-to-view="scrollToView"
+      :logout="logout"
+      @toggleDrawer="toggleDrawer"
+    />
 
-    <v-navigation-drawer v-model="drawer" fixed right temporary>
+    <v-navigation-drawer v-model="drawer" fixed right hide-overlay>
       <v-list nav dense>
         <v-list-item v-for="(session, index) in sessions" :key="index">
           <v-list-item-content>
@@ -39,10 +33,11 @@
 <script>
 import SnackBar from '~/components/layouts/SnackBar.vue'
 import MyBackground from '~/components/layouts/MyBackground.vue'
+import AppBar from '~/components/layouts/AppBar.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { SnackBar, MyBackground },
+  components: { SnackBar, MyBackground, AppBar },
   data() {
     return {
       drawer: false,
@@ -99,6 +94,22 @@ export default {
       document.getElementById(id)?.scrollIntoView()
     },
     /**
+     * handle select session
+     * @param {string} id - session id
+     * @return {void}
+     */
+    selectSession(id) {
+      this.scrollToView(id)
+      this.drawer = false
+    },
+    /**
+     * handle toggle drawer
+     * @return {void}
+     */
+    toggleDrawer() {
+      this.drawer = !this.drawer
+    },
+    /**
      * log out account
      * @return {void}
      */
@@ -109,15 +120,6 @@ export default {
           this.$router.push('#')
         }
       })
-    },
-    /**
-     * handle select session
-     * @param {string} id - session id
-     * @return {void}
-     */
-    selectSession(id) {
-      this.scrollToView(id)
-      this.drawer = false
     }
   }
 }
@@ -161,21 +163,6 @@ html {
   font-style: normal;
   font-size: 14px;
   color: var(--color-text) !important;
-  &.show-scroll-bar {
-    overflow-y: scroll;
-    &::-webkit-scrollbar {
-      width: 10px;
-      background-color: transparent;
-    }
-    &::-webkit-scrollbar-track {
-      box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-      background-color: var(--color-base);
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: var(--color-scrollbar-thumb);
-      border-radius: 4px;
-    }
-  }
 }
 
 ::v-deep .theme--dark.v-btn {
