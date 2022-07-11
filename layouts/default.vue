@@ -2,23 +2,9 @@
   <v-app dark>
     <my-background />
 
-    <app-bar
-      :sessions="sessions"
-      :drawer="drawer"
-      :scroll-to-view="scrollToView"
-      :logout="logout"
-      @toggleDrawer="toggleDrawer"
-    />
+    <app-bar :sessions="sessions" @toggleDrawer="toggleDrawer" />
 
-    <v-navigation-drawer v-model="drawer" fixed right hide-overlay>
-      <v-list nav dense>
-        <v-list-item v-for="(session, index) in sessions" :key="index">
-          <v-list-item-content>
-            <v-btn text @click="() => selectSession(session.id)">{{ session.name }}</v-btn>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
+    <navigation-drawer v-model="drawer" :sessions="sessions" />
 
     <v-main>
       <v-container class="pa-0">
@@ -34,10 +20,11 @@
 import SnackBar from '~/components/layouts/SnackBar.vue'
 import MyBackground from '~/components/layouts/MyBackground.vue'
 import AppBar from '~/components/layouts/AppBar.vue'
+import NavigationDrawer from '~/components/layouts/NavigationDrawer.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { SnackBar, MyBackground, AppBar },
+  components: { SnackBar, MyBackground, AppBar, NavigationDrawer },
   data() {
     return {
       drawer: false,
@@ -86,40 +73,11 @@ export default {
   },
   methods: {
     /**
-     * scroll to view session by id
-     * @param {string} id - session id
-     * @return {void}
-     */
-    scrollToView(id) {
-      document.getElementById(id)?.scrollIntoView()
-    },
-    /**
-     * handle select session
-     * @param {string} id - session id
-     * @return {void}
-     */
-    selectSession(id) {
-      this.scrollToView(id)
-      this.drawer = false
-    },
-    /**
      * handle toggle drawer
      * @return {void}
      */
     toggleDrawer() {
       this.drawer = !this.drawer
-    },
-    /**
-     * log out account
-     * @return {void}
-     */
-    logout() {
-      this.$store.dispatch('profile/logout').then((isSuccess) => {
-        if (isSuccess) {
-          this.$showSuccessNotification('Log out successfully')
-          this.$router.push('#')
-        }
-      })
     }
   }
 }

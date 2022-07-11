@@ -1,14 +1,14 @@
 <template>
   <v-app-bar :class="['app-bar', { 'app-bar-background': !$vuetify.breakpoint.mdAndUp }]" flat fixed app>
-    <h1 style="cursor: pointer; user-select: none" class="app-bar__signature" @click="scrollToView('home')">
+    <h1 style="cursor: pointer; user-select: none" class="app-bar__signature" @click="selectSession('home')">
       {{ signature }}
     </h1>
     <v-spacer />
     <div v-if="$vuetify.breakpoint.mdAndUp" class="app-bar__sessions">
-      <v-btn v-for="(session, index) in sessions" :key="index" text @click="scrollToView(session.id)">
+      <v-btn v-for="(session, index) in sessions" :key="index" text @click="selectSession(session.id)">
         {{ session.name }}
       </v-btn>
-      <v-btn v-if="user.email" text color="red" @click="logout">Logout</v-btn>
+      <v-btn v-if="user.email" text color="error" @click="logout">Logout</v-btn>
     </div>
     <v-app-bar-nav-icon v-else @click.stop="$emit('toggleDrawer')"></v-app-bar-nav-icon>
   </v-app-bar>
@@ -21,18 +21,6 @@ export default {
     sessions: {
       type: Array,
       required: true
-    },
-    drawer: {
-      type: Boolean,
-      required: true
-    },
-    scrollToView: {
-      type: Function,
-      required: true
-    },
-    logout: {
-      type: Function,
-      required: true
     }
   },
   data() {
@@ -43,6 +31,28 @@ export default {
   computed: {
     user() {
       return this.$store.getters['profile/getUser']
+    }
+  },
+  methods: {
+    /**
+     * handle select session
+     * @param {string} id - session id
+     * @return {void}
+     */
+    selectSession(id) {
+      document.getElementById(id)?.scrollIntoView()
+    },
+    /**
+     * log out account
+     * @return {void}
+     */
+    logout() {
+      this.$store.dispatch('profile/logout').then((isSuccess) => {
+        if (isSuccess) {
+          this.$showSuccessNotification('Log out successfully')
+          this.$router.push('#')
+        }
+      })
     }
   }
 }
