@@ -19,7 +19,7 @@
         erase-style="backspace"
       ></vue-typer>
     </div>
-    <div :class="['contact', { 'top-248': !$vuetify.breakpoint.mdAndUp }]">
+    <div class="contact">
       <v-tooltip v-for="(contact, index) in contacts" :key="index" top color="transparent">
         <template #activator="{ on, attrs }">
           <a :href="contact.href" target="_blank" v-bind="attrs" v-on="on">
@@ -109,14 +109,11 @@ export default {
 }
 
 .contact {
-  position: relative;
-  top: 288px;
+  position: absolute;
+  bottom: 0;
   left: 0;
   width: 100%;
   text-align: center;
-  &.top-248 {
-    top: 248px;
-  }
 
   & a {
     margin: 0 24px;

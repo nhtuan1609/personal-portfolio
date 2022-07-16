@@ -1,5 +1,5 @@
 <template>
-  <home-message id="home" />
+  <home-message />
 </template>
 
 <script>

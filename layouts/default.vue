@@ -4,7 +4,7 @@
     <app-bar :sessions="sessions" @toggleDrawer="toggleDrawer" />
     <navigation-drawer v-model="drawer" :sessions="sessions" />
     <v-main>
-      <v-container style="margin-top: -80px">
+      <v-container>
         <Nuxt />
       </v-container>
     </v-main>
@@ -81,8 +81,7 @@ export default {
 <style lang="scss">
 // global variable
 :root {
-  --height-application-header: 60px;
-  --height-application-footer: 40px;
+  --height-application-header: 90px;
 
   --color-background: #333;
   --color-background-secondary: #555;

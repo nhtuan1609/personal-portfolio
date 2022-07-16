@@ -17,17 +17,17 @@ export default {
 
 <style lang="scss" scoped>
 .session {
-  min-height: calc(100vh - var(--height-application-header) - var(--height-application-footer));
+  min-height: calc(100vh - var(--height-application-header));
   display: flex;
   flex-direction: column;
   &__title {
-    margin-top: 80px;
     text-align: center;
     font-size: 3rem;
     line-height: 120px;
     font-weight: bold;
   }
   &__content {
+    position: relative;
     flex: 1;
     display: flex;
     flex-direction: column;
