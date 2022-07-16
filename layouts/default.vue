@@ -79,6 +79,7 @@ export default {
 }
 </script>
 <style lang="scss">
+// global variable
 :root {
   --height-application-header: 60px;
   --height-application-footer: 40px;
@@ -93,8 +94,9 @@ export default {
   --color-button-text: #ccc;
 }
 
+// thumb scroll
 html {
-  overflow-y: auto;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   &::-webkit-scrollbar {
     width: 10px;
@@ -107,6 +109,50 @@ html {
   &::-webkit-scrollbar-thumb {
     background-color: var(--color-scrollbar-thumb);
     border-radius: 4px;
+  }
+}
+
+// page transition
+$t-duration: 600ms;
+.page-enter-active,
+.page-leave-active {
+  transition-duration: $t-duration * 2;
+
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-background);
+    transition-property: opacity, transform;
+    transition-timing-function: ease-in-out;
+    transition-duration: $t-duration;
+  }
+}
+.page-leave {
+  &::before {
+    transform: scaleX(0);
+  }
+}
+.page-leave-to {
+  &::before {
+    transform: scale(1);
+    transform-origin: left;
+  }
+}
+.page-enter {
+  &::before {
+    transform: scaleX(1);
+  }
+}
+.page-enter-to {
+  &::before {
+    transform: scaleX(0);
+    transform-origin: right;
   }
 }
 </style>
