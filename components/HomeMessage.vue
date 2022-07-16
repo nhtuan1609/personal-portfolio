@@ -19,6 +19,18 @@
         erase-style="backspace"
       ></vue-typer>
     </div>
+    <div :class="['contact', { 'top-248': !$vuetify.breakpoint.mdAndUp }]">
+      <v-tooltip v-for="(contact, index) in contacts" :key="index" top color="transparent">
+        <template #activator="{ on, attrs }">
+          <a :href="contact.href" target="_blank" v-bind="attrs" v-on="on">
+            <v-btn icon>
+              <v-icon>{{ contact.icon }}</v-icon>
+            </v-btn>
+          </a>
+        </template>
+        <span>{{ contact.name }}</span>
+      </v-tooltip>
+    </div>
   </session-content>
 </template>
 
@@ -31,7 +43,29 @@ export default {
   components: { SessionContent, VueTyper },
   data() {
     return {
-      message: ["My portfolio will show you all of that I've learned and accomplished as a Web Developer."]
+      message: ["My portfolio will show you all of that I've learned and accomplished as a Web Developer."],
+      contacts: [
+        {
+          name: 'Email',
+          icon: 'mdi-email',
+          href: 'mailto:nhtuan1609@gmail.com'
+        },
+        {
+          name: 'Facebook',
+          icon: 'mdi-facebook',
+          href: 'https://www.facebook.com/nhtuan1609'
+        },
+        {
+          name: 'Github',
+          icon: 'mdi-github',
+          href: 'https://github.com/nhtuan1609'
+        },
+        {
+          name: 'freeCodeCamp',
+          icon: 'mdi-fire-circle',
+          href: 'https://www.freecodecamp.org/nhtuan1609'
+        }
+      ]
     }
   }
 }
@@ -71,6 +105,22 @@ export default {
     &::v-deep .caret.custom {
       background-color: var(--color-text);
     }
+  }
+}
+
+.contact {
+  position: relative;
+  top: 288px;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  &.top-248 {
+    top: 248px;
+  }
+
+  & a {
+    margin: 0 24px;
+    text-decoration: none;
   }
 }
 </style>
