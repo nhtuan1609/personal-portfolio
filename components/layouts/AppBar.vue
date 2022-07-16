@@ -1,11 +1,11 @@
 <template>
   <v-app-bar :class="['app-bar', { 'app-bar-background': !$vuetify.breakpoint.mdAndUp }]" flat fixed app>
-    <h1 class="app-bar__signature" @click="selectSession('home')">
+    <h1 class="app-bar__signature" @click="$router.push('/')">
       {{ signature }}
     </h1>
     <v-spacer />
     <div v-if="$vuetify.breakpoint.mdAndUp" class="app-bar__sessions">
-      <v-btn v-for="(session, index) in sessions" :key="index" text @click="selectSession(session.id)">
+      <v-btn v-for="(session, index) in sessions" :key="index" text @click.stop="$router.push(session.path)">
         {{ session.name }}
       </v-btn>
       <v-btn v-if="user.email" text color="error" @click="logout">Logout</v-btn>
@@ -35,14 +35,6 @@ export default {
   },
   methods: {
     /**
-     * handle select session
-     * @param {string} id - session id
-     * @return {void}
-     */
-    selectSession(id) {
-      document.getElementById(id)?.scrollIntoView()
-    },
-    /**
      * log out account
      * @return {void}
      */
@@ -50,7 +42,7 @@ export default {
       this.$store.dispatch('profile/logout').then((isSuccess) => {
         if (isSuccess) {
           this.$showSuccessNotification('Log out successfully')
-          this.$router.push('#')
+          this.$router.push('/')
         }
       })
     }

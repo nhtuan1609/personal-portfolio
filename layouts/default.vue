@@ -1,17 +1,13 @@
 <template>
   <v-app dark>
     <my-background />
-
     <app-bar :sessions="sessions" @toggleDrawer="toggleDrawer" />
-
     <navigation-drawer v-model="drawer" :sessions="sessions" />
-
     <v-main>
-      <v-container class="pa-0">
+      <v-container style="margin-top: -80px">
         <Nuxt />
       </v-container>
     </v-main>
-
     <snack-bar />
   </v-app>
 </template>
@@ -32,31 +28,31 @@ export default {
       sessions: [
         {
           name: 'Home',
-          id: 'home'
+          path: '/'
         },
         {
           name: 'About',
-          id: 'about'
+          path: '/about'
         },
         {
           name: 'Skills',
-          id: 'skills'
+          path: '/skills'
         },
         {
           name: 'Experience',
-          id: 'experience'
+          path: '/experience'
         },
         {
           name: 'Education',
-          id: 'education'
+          path: '/education'
         },
         {
           name: 'Projects',
-          id: 'projects'
+          path: '/projects'
         },
         {
           name: 'Contact',
-          id: 'contact'
+          path: '/contact'
         }
       ]
     }

@@ -11,7 +11,7 @@
       <v-list nav dense>
         <v-list-item v-for="(session, index) in sessions" :key="index">
           <v-list-item-content>
-            <v-btn text @click="() => selectSession(session.id)">{{ session.name }}</v-btn>
+            <v-btn text @click="selectSession(session.path)">{{ session.name }}</v-btn>
           </v-list-item-content>
         </v-list-item>
         <v-list-item v-if="user.email">
@@ -55,11 +55,11 @@ export default {
     },
     /**
      * handle select session
-     * @param {string} id - session id
+     * @param {string} path - session path
      * @return {void}
      */
-    selectSession(id) {
-      document.getElementById(id)?.scrollIntoView()
+    selectSession(path) {
+      this.$router.push(path)
       this.$emit('input', false)
     },
     /**
@@ -70,7 +70,7 @@ export default {
       this.$store.dispatch('profile/logout').then((isSuccess) => {
         if (isSuccess) {
           this.$showSuccessNotification('Log out successfully')
-          this.$router.push('#')
+          this.$router.push('/')
         }
       })
     }
