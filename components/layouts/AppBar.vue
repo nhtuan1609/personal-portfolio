@@ -1,6 +1,6 @@
 <template>
   <v-app-bar :class="['app-bar', { 'app-bar-background': !$vuetify.breakpoint.mdAndUp }]" flat fixed app>
-    <h1 style="cursor: pointer; user-select: none" class="app-bar__signature" @click="selectSession('home')">
+    <h1 class="app-bar__signature" @click="selectSession('home')">
       {{ signature }}
     </h1>
     <v-spacer />
@@ -65,6 +65,9 @@ export default {
 
   &__signature {
     font-weight: 300;
+    color: var(--text-color);
+    cursor: pointer;
+    user-select: none;
   }
 
   &__sessions {

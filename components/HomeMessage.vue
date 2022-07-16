@@ -3,9 +3,10 @@
     <div class="message__title">
       Hi, I am
       <br />
-      <span>
-        <strong>Tuan</strong>
-      </span>
+      <div class="d-flex flex-wrap">
+        <div class="message__title-name">TUAN</div>
+        <div class="message__title-work">Web Developer</div>
+      </div>
     </div>
     <div class="message__sub-title">
       <vue-typer
@@ -30,7 +31,7 @@ export default {
   components: { SessionContent, VueTyper },
   data() {
     return {
-      message: ['My portfolio will show you', "all of that I've learned and accomplished", 'as a Frontend Developer']
+      message: ["My portfolio will show you all of that I've learned and accomplished as a Web Developer."]
     }
   }
 }
@@ -39,21 +40,35 @@ export default {
 <style lang="scss" scoped>
 .message {
   &__title {
+    width: 100%;
     font-size: 5rem;
-    text-align: center;
     color: var(--color-text);
-  }
 
-  &__sub-title ::v-deep .vue-typer {
-    height: 60px;
-    font-size: 3rem;
-    text-align: center;
-
-    .custom.char.typed {
-      color: var(--color-text);
+    &-name {
+      font-size: 10rem;
+      font-weight: bold;
+      line-height: 148px;
     }
 
-    .caret.custom {
+    &-work {
+      font-size: 3rem;
+    }
+  }
+
+  &__sub-title {
+    margin-top: 24px;
+    width: 100%;
+    font-size: 1.2rem;
+    border-left: 2px solid var(--color-text);
+    padding: 0 12px;
+
+    &::v-deep .vue-typer {
+      .custom.char.typed {
+        color: var(--color-text);
+      }
+    }
+
+    &::v-deep .caret.custom {
       background-color: var(--color-text);
     }
   }

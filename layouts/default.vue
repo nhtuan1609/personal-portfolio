@@ -89,7 +89,7 @@ export default {
 
   --color-background: #333;
   --color-background-secondary: #555;
-  --color-text: #888;
+  --color-text: #ccc;
   --color-text-hover: #aaa;
   --color-border: #555;
   --color-base: var(--v-_base-base);
