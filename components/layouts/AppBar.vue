@@ -66,12 +66,12 @@ export default {
     margin-right: -16px;
     padding: 4px 16px;
     border-radius: 32px 0 0 32px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--color-background);
   }
 }
 
 .app-bar-background {
   top: 0;
-  background-color: rgba(0, 0, 0, 0.6) !important;
+  background-color: var(--color-background-app-bar) !important;
 }
 </style>

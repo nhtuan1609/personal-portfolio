@@ -125,8 +125,8 @@ export default {
 <style lang="scss" scoped>
 .skill {
   margin: 12px 0;
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
+  background-color: var(--color-background);
+  backdrop-filter: blur(var(--blur-size));
   border-radius: 8px;
 
   &__item {

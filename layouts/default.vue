@@ -82,15 +82,17 @@ export default {
 // global variable
 :root {
   --height-application-header: 90px;
+  --blur-size: 2px;
 
-  --color-background: #333;
-  --color-background-secondary: #555;
+  --color-background: rgba(0, 0, 0, 0.3);
+  --color-background-light: rgba(125, 125, 125, 0.3);
+  --color-background-app-bar: rgba(0, 0, 0, 0.6);
+  --color-button: rgba(125, 125, 125, 0.2);
   --color-text: #ccc;
   --color-text-hover: #aaa;
   --color-border: #555;
   --color-base: var(--v-_base-base);
   --color-scrollbar-thumb: #888;
-  --color-button-text: #ccc;
 }
 
 // thumb scroll
@@ -126,7 +128,7 @@ $t-duration: 600ms;
     display: block;
     width: 100%;
     height: 100%;
-    background-color: var(--color-background);
+    background-color: #333;
     transition-property: opacity, transform;
     transition-timing-function: ease-in-out;
     transition-duration: $t-duration;
@@ -165,6 +167,6 @@ $t-duration: 600ms;
 }
 
 ::v-deep .theme--dark.v-btn {
-  color: var(--color-button-text);
+  color: var(--color-text);
 }
 </style>

@@ -67,6 +67,7 @@ export default {
      * @return {void}
      */
     logout() {
+      this.$emit('input', false)
       this.$store.dispatch('profile/logout').then((isSuccess) => {
         if (isSuccess) {
           this.$showSuccessNotification('Log out successfully')
@@ -83,7 +84,8 @@ export default {
   &__sessions {
     z-index: 11;
     margin-top: 64px;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--color-background);
+    backdrop-filter: blur(var(--blur-size));
   }
 
   &__modal {
@@ -93,7 +95,7 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: var(--color-background);
   }
 }
 </style>

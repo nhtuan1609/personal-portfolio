@@ -50,16 +50,8 @@
       </v-form>
 
       <div class="form__button">
-        <v-btn
-          min-width="160px"
-          height="48px"
-          elevation="0"
-          color="var(--color-text)"
-          outlined
-          @click="$router.push('/')"
-          >Back</v-btn
-        >
-        <v-btn min-width="200px" height="48px" elevation="0" color="var(--color-text)" @click="login">Sign in</v-btn>
+        <v-btn min-width="160px" height="48px" color="var(--color-button)" @click="$router.push('/')">Back</v-btn>
+        <v-btn min-width="200px" height="48px" color="var(--color-button)" @click="login">Sign in</v-btn>
       </div>
     </div>
   </v-layout>
@@ -115,8 +107,8 @@ export default {
 <style lang="scss" scoped>
 .form {
   width: 600px;
-  background-color: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(2px);
+  background-color: var(--color-background);
+  backdrop-filter: blur(var(--blur-size));
   padding: 20px 40px;
   border-radius: 4px;
   .form__title {
@@ -138,7 +130,7 @@ export default {
     text-align: left;
     border-radius: 4px;
     &.small {
-      margin: 0;
+      margin: 0 -12px;
       font-size: 14px;
       padding: 10px;
       margin-bottom: 8px;

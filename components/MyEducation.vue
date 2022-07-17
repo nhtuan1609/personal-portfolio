@@ -114,8 +114,8 @@ export default {
     margin-top: 24px;
   }
   & .group {
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(4px);
+    background-color: var(--color-background);
+    backdrop-filter: blur(var(--blur-size));
     border-radius: 8px;
     &__title {
       color: var(--color-text);
@@ -137,15 +137,16 @@ export default {
           margin-top: 12px;
         }
         & a {
+          max-width: 100%;
           display: inline-block;
           padding: 8px;
           text-decoration: none;
           color: var(--color-text);
-          font-weight: bold;
           border: 2px solid var(--color-border);
+          border-radius: 4px;
+          transition: background-color 0.2s linear;
           &:hover {
-            color: var(--color-background);
-            background-color: var(--color-text);
+            background-color: var(--color-button);
           }
         }
       }

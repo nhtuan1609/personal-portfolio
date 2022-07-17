@@ -14,9 +14,7 @@
           <v-divider />
           <v-card-text>
             <img class="project__image" :src="project.imgSrc" alt="project-image" />
-            <v-btn class="mt-4" width="100%" color="rgba(125, 125, 125, 0.2)" @click="toggleDetails(index)"
-              >Details</v-btn
-            >
+            <v-btn class="mt-4" width="100%" color="var(--color-button)" @click="toggleDetails(index)">Details</v-btn>
             <div class="pb-4">
               <v-expand-transition>
                 <v-card v-if="isShowDetails[index]" class="transition-fast-in-fast-out project__details">
@@ -55,10 +53,10 @@
             </div>
             <div class="project__buttons">
               <a :href="project.source" target="_blank" :class="{ 'full-width': !$vuetify.breakpoint.mdAndUp }">
-                <v-btn width="100%" color="rgba(125, 125, 125, 0.2)">Source Code</v-btn>
+                <v-btn width="100%" color="var(--color-button)">Source Code</v-btn>
               </a>
               <a :href="project.website" target="_blank" :class="{ 'full-width': !$vuetify.breakpoint.mdAndUp }">
-                <v-btn width="100%" color="rgba(125, 125, 125, 0.2)">Website</v-btn>
+                <v-btn width="100%" color="var(--color-button)">Website</v-btn>
               </a>
             </div>
           </v-card-text>
@@ -251,11 +249,11 @@ export default {
 
 <style lang="scss" scoped>
 .project {
-  background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(4px);
+  background-color: var(--color-background);
+  backdrop-filter: blur(var(--blur-size));
   border-radius: 8px;
   &.v-card.v-sheet::before {
-    border-right-color: rgba(0, 0, 0, 0.3);
+    border-right-color: var(--color-background);
   }
   &.v-card.v-sheet::after {
     border-right: none;

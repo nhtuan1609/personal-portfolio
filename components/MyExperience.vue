@@ -188,8 +188,8 @@ export default {
     margin-top: 24px;
   }
   & .group {
-    background-color: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(4px);
+    background-color: var(--color-background);
+    backdrop-filter: blur(var(--blur-size));
     border-radius: 8px;
     &__title {
       color: var(--color-text);
@@ -212,8 +212,8 @@ export default {
   .panel {
     background-color: transparent;
     &__header {
-      background-color: rgba(125, 125, 125, 0.3);
-      backdrop-filter: blur(4px);
+      background-color: var(--color-background-light);
+      backdrop-filter: blur(var(--blur-size));
       color: var(--color-text);
       font-size: 1.2rem;
     }

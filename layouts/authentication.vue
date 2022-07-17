@@ -1,19 +1,20 @@
 <template>
   <v-app dark>
+    <my-background />
     <v-main>
       <Nuxt />
     </v-main>
-
     <snack-bar />
   </v-app>
 </template>
 
 <script>
 import SnackBar from '~/components/layouts/SnackBar.vue'
+import MyBackground from '~/components/layouts/MyBackground.vue'
 
 export default {
   name: 'AuthenticationLayout',
-  components: { SnackBar },
+  components: { SnackBar, MyBackground },
   data() {
     return {
       title: 'Personal Portfolio'
@@ -28,9 +29,9 @@ export default {
 </script>
 <style lang="scss">
 :root {
-  --color-background: #333;
-  --color-text: #888;
-  --color-base: var(--v-_base-base);
+  --blur-size: 2px;
+  --color-background: rgba(0, 0, 0, 0.3);
+  --color-button: rgba(125, 125, 125, 0.2);
   --color-scrollbar-thumb: #888;
   --color-white: var(--v-_white-base);
   --color-error: var(--v-error-base);
@@ -61,6 +62,9 @@ html {
   font-style: normal;
   font-size: 14px;
   color: var(--color-text) !important;
-  background-color: var(--color-background) !important;
+}
+
+::v-deep .theme--dark.v-btn {
+  color: var(--color-text);
 }
 </style>
