@@ -17,6 +17,9 @@ export const getters = {
   },
   getAboutData(state) {
     return state.profile.about
+  },
+  getSkillsData(state) {
+    return state.profile.skills
   }
 }
 

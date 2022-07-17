@@ -1,5 +1,5 @@
 <template>
-  <session-content>
+  <session-content v-if="skillsData">
     <template #title>SKILLS</template>
     <v-container>
       <v-row>
@@ -41,48 +41,18 @@ export default {
   name: 'MySkills',
   components: { SessionContent },
   computed: {
+    skillsData() {
+      return this.$store.getters['profile/getSkillsData']
+    },
     leftGroups() {
       return [
         {
           name: 'Frontend',
-          skills: [
-            {
-              name: 'Vue.js',
-              href: 'https://vuejs.org/',
-              logoSrc: require('~/assets/image/skills/vue.svg')
-            },
-            {
-              name: 'React',
-              href: 'https://reactjs.org/',
-              logoSrc: require('~/assets/image/skills/react.svg')
-            },
-            {
-              name: 'Vuetify',
-              href: 'https://vuetifyjs.com/',
-              logoSrc: require('~/assets/image/skills/vuetify.svg')
-            },
-
-            {
-              name: 'Material UI',
-              href: 'https://mui.com/',
-              logoSrc: require('~/assets/image/skills/material-ui.svg')
-            }
-          ]
+          skills: this.skillsData.frontend
         },
         {
           name: 'Backend',
-          skills: [
-            {
-              name: 'Firebase',
-              href: 'https://firebase.google.com/',
-              logoSrc: require('~/assets/image/skills/firebase.svg')
-            },
-            {
-              name: 'Spring',
-              href: 'https://spring.io/',
-              logoSrc: require('~/assets/image/skills/spring.svg')
-            }
-          ]
+          skills: this.skillsData.backend
         }
       ]
     },
@@ -90,28 +60,11 @@ export default {
       return [
         {
           name: 'Programing Languages',
-          skills: [
-            {
-              name: 'JavaScript',
-              href: 'https://www.javascript.com/',
-              logoSrc: require('~/assets/image/skills/javascript.svg')
-            },
-            {
-              name: 'Java',
-              href: 'https://www.javascript.com/',
-              logoSrc: require('~/assets/image/skills/java.svg')
-            }
-          ]
+          skills: this.skillsData.programingLanguage
         },
         {
           name: 'Version Control',
-          skills: [
-            {
-              name: 'Git',
-              href: 'https://git-scm.com/',
-              logoSrc: require('~/assets/image/skills/git.svg')
-            }
-          ]
+          skills: this.skillsData.versionControl
         }
       ]
     },
