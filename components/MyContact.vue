@@ -3,7 +3,7 @@
     <template #title>CONTACT ME</template>
     <div class="contacts">
       <a v-for="(contact, index) in contacts" :key="index" :href="contact.href" target="_blank">
-        <v-btn large min-width="200px" :color="contact.color" elevation="0">
+        <v-btn large min-width="200px" color="rgba(125, 125, 125, 0.2)">
           <v-icon small left>{{ contact.icon }}</v-icon>
           {{ contact.name }}
         </v-btn>
@@ -22,14 +22,14 @@ export default {
     contacts() {
       return [
         {
-          name: 'Call Me',
-          icon: 'mdi-phone',
-          href: 'tel:+847750056'
-        },
-        {
-          name: 'Email Me',
+          name: 'Email',
           icon: 'mdi-email',
           href: 'mailto:nhtuan1609@gmail.com'
+        },
+        {
+          name: 'Facebook',
+          icon: 'mdi-facebook',
+          href: 'https://www.facebook.com/nhtuan1609'
         },
         {
           name: 'Github',
@@ -54,8 +54,9 @@ export default {
   justify-content: center;
   gap: 16px;
   padding: 64px 32px;
-  background-color: var(--color-background-secondary);
-  border-radius: 4px;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
   & a {
     text-decoration: none;
   }
