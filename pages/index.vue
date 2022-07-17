@@ -7,9 +7,6 @@ import HomeMessage from '~/components/HomeMessage.vue'
 
 export default {
   name: 'HomePage',
-  components: { HomeMessage },
-  created() {
-    this.$store.dispatch('profile/setProfileRef')
-  }
+  components: { HomeMessage }
 }
 </script>

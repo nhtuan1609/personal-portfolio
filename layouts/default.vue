@@ -67,6 +67,9 @@ export default {
       return this.$store.getters['profile/getUser']
     }
   },
+  created() {
+    this.$store.dispatch('profile/setProfileRef')
+  },
   methods: {
     /**
      * handle toggle drawer
