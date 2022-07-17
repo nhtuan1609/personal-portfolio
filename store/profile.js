@@ -23,6 +23,9 @@ export const getters = {
   },
   getExperienceData(state) {
     return state.profile.experience
+  },
+  getEducationData(state) {
+    return state.profile.education
   }
 }
 
