@@ -64,7 +64,7 @@ html {
   color: var(--color-text) !important;
 }
 
-::v-deep .theme--dark.v-btn {
+.theme--dark:deep(.v-btn) {
   color: var(--color-text);
 }
 </style>

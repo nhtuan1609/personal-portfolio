@@ -80,13 +80,13 @@ export default {
     border-left: 2px solid var(--color-text);
     padding: 0 12px;
 
-    &::v-deep .vue-typer {
+    &:deep(.vue-typer) {
       .custom.char.typed {
         color: var(--color-text);
       }
     }
 
-    &::v-deep .caret.custom {
+    &:deep(.caret.custom) {
       background-color: var(--color-text);
     }
   }
