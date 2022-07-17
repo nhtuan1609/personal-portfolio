@@ -68,15 +68,18 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
-  // env information using to connect with google firebase
   env: {
+    // information using to connect with google firebase
     API_KEY: process.env.API_KEY,
     AUTH_DOMAIN: process.env.AUTH_DOMAIN,
     PROJECT_ID: process.env.PROJECT_ID,
     STORAGE_BUCKET: process.env.STORAGE_BUCKET,
     MESSAGING_SENDER_ID: process.env.MESSAGING_SENDER_ID,
     APP_ID: process.env.APP_ID,
-    MEASUREMENT_ID: process.env.MEASUREMENT_ID
+    MEASUREMENT_ID: process.env.MEASUREMENT_ID,
+
+    // profile
+    PROFILE_ID: process.env.PROFILE_ID
   },
 
   // disable pre-fetch and preload

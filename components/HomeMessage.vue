@@ -1,16 +1,16 @@
 <template>
-  <session-content>
+  <session-content v-if="homeData">
     <div class="message__title">
-      Hi, I am
+      {{ introduction.greeting }}
       <br />
       <div class="d-flex flex-wrap">
-        <div class="message__title-name">TUAN</div>
-        <div class="message__title-work">Web Developer</div>
+        <div class="message__title-name">{{ introduction.name }}</div>
+        <div class="message__title-work">{{ introduction.position }}</div>
       </div>
     </div>
     <div class="message__sub-title">
       <vue-typer
-        :text="message"
+        :text="introduction.message"
         :repeat="Infinity"
         initial-action="typing"
         :type-delay="70"
@@ -41,31 +41,15 @@ import SessionContent from '~/components/commons/SessionContent.vue'
 export default {
   name: 'HomeMessage',
   components: { SessionContent, VueTyper },
-  data() {
-    return {
-      message: ["My portfolio will show you all of that I've learned and accomplished as a Web Developer."],
-      contacts: [
-        {
-          name: 'Email',
-          icon: 'mdi-email',
-          href: 'mailto:nhtuan1609@gmail.com'
-        },
-        {
-          name: 'Facebook',
-          icon: 'mdi-facebook',
-          href: 'https://www.facebook.com/nhtuan1609'
-        },
-        {
-          name: 'Github',
-          icon: 'mdi-github',
-          href: 'https://github.com/nhtuan1609'
-        },
-        {
-          name: 'freeCodeCamp',
-          icon: 'mdi-fire-circle',
-          href: 'https://www.freecodecamp.org/nhtuan1609'
-        }
-      ]
+  computed: {
+    homeData() {
+      return this.$store.getters['profile/getHomeData']
+    },
+    introduction() {
+      return this.homeData.introduction
+    },
+    contacts() {
+      return this.homeData.contacts
     }
   }
 }

@@ -1,14 +1,19 @@
+import { firestoreAction } from 'vuexfire'
 import firebase from '~/plugins/firebase'
 
 const db = firebase.firestore()
 
 export const state = () => ({
-  user: {}
+  user: {},
+  profile: {}
 })
 
 export const getters = {
   getUser(state) {
     return state.user
+  },
+  getHomeData(state) {
+    return state.profile.home
   }
 }
 
@@ -22,6 +27,10 @@ export const mutations = {
 }
 
 export const actions = {
+  // binding profile collection
+  setProfileRef: firestoreAction(({ bindFirestoreRef }) => {
+    bindFirestoreRef('profile', db.collection('profiles').doc(process.env.PROFILE_ID), { wait: true })
+  }),
   /**
    * login user
    * @param {object} state - local state
