@@ -20,7 +20,7 @@ export default {
   &-image {
     width: 100vw;
     height: 100vh;
-    background-image: url('~assets/image/background.jpg');
+    background-image: url('/image/background.jpg');
     background-size: cover;
     background-position: center;
   }

@@ -4,13 +4,7 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="6" class="d-flex justify-center">
-          <v-img
-            class="about__image"
-            max-width="80%"
-            contain
-            :src="require('~/assets/image/profile/avatar.jpg')"
-            alt="avatar-image"
-          />
+          <v-img class="about__image" max-width="80%" contain src="/image/profile/avatar.jpg" alt="avatar-image" />
         </v-col>
         <v-col cols="12" md="6" class="d-flex align-center">
           <div class="about__information">

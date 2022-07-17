@@ -82,7 +82,7 @@ export default {
       return [
         {
           name: 'Monotasking',
-          imgSrc: require('~/assets/image/projects/monotasking.jpg'),
+          imgSrc: '/image/projects/monotasking.jpg',
           date: '08-01-2022',
           source: 'https://github.com/nhtuan1609/monotasking',
           website: 'https://monotasking.vercel.app/',
@@ -97,23 +97,23 @@ export default {
             {
               name: 'NuxtJS',
               href: 'https://nuxtjs.org/',
-              logoSrc: require('~/assets/image/skills/nuxtjs.svg')
+              logoSrc: '/image/skills/nuxtjs.svg'
             },
             {
               name: 'Vuetify',
               href: 'https://vuetifyjs.com/',
-              logoSrc: require('~/assets/image/skills/vuetify.svg')
+              logoSrc: '/image/skills/vuetify.svg'
             },
             {
               name: 'Firebase',
               href: 'https://firebase.google.com/',
-              logoSrc: require('~/assets/image/skills/firebase.svg')
+              logoSrc: '/image/skills/firebase.svg'
             }
           ]
         },
         {
           name: 'Movie Ticket',
-          imgSrc: require('~/assets/image/projects/movie-ticket.jpg'),
+          imgSrc: '/image/projects/movie-ticket.jpg',
           date: '12-05-2021',
           source: 'https://github.com/nhtuan1609/movie_ticket',
           website: 'https://movie-ticket-alpha.vercel.app/',
@@ -128,23 +128,23 @@ export default {
             {
               name: 'React',
               href: 'https://reactjs.org/',
-              logoSrc: require('~/assets/image/skills/react.svg')
+              logoSrc: '/image/skills/react.svg'
             },
             {
               name: 'Material UI',
               href: 'https://mui.com/',
-              logoSrc: require('~/assets/image/skills/material-ui.svg')
+              logoSrc: '/image/skills/material-ui.svg'
             },
             {
               name: 'Redux',
               href: 'https://redux.js.org/',
-              logoSrc: require('~/assets/image/skills/redux.svg')
+              logoSrc: '/image/skills/redux.svg'
             }
           ]
         },
         {
           name: 'Music Player',
-          imgSrc: require('~/assets/image/projects/music-player.jpg'),
+          imgSrc: '/image/projects/music-player.jpg',
           date: '27-02-2021',
           source: 'https://github.com/nhtuan1609/music_player',
           website: 'https://music-player-sigma.vercel.app/',
@@ -154,23 +154,23 @@ export default {
             {
               name: 'HTML',
               href: 'https://vi.wikipedia.org/wiki/HTML',
-              logoSrc: require('~/assets/image/skills/html.svg')
+              logoSrc: '/image/skills/html.svg'
             },
             {
               name: 'CSS',
               href: 'https://vi.wikipedia.org/wiki/CSS',
-              logoSrc: require('~/assets/image/skills/css.svg')
+              logoSrc: '/image/skills/css.svg'
             },
             {
               name: 'JavaScript',
               href: 'https://www.javascript.com/',
-              logoSrc: require('~/assets/image/skills/javascript.svg')
+              logoSrc: '/image/skills/javascript.svg'
             }
           ]
         },
         {
           name: 'Todo List',
-          imgSrc: require('~/assets/image/projects/todo-list.jpg'),
+          imgSrc: '/image/projects/todo-list.jpg',
           date: '20-02-2021',
           source: 'https://github.com/nhtuan1609/todo_list',
           website: 'https://todo-list-two-pi.vercel.app/',
@@ -180,18 +180,18 @@ export default {
             {
               name: 'React',
               href: 'https://reactjs.org/',
-              logoSrc: require('~/assets/image/skills/react.svg')
+              logoSrc: '/image/skills/react.svg'
             },
             {
               name: 'Material UI',
               href: 'https://mui.com/',
-              logoSrc: require('~/assets/image/skills/material-ui.svg')
+              logoSrc: '/image/skills/material-ui.svg'
             }
           ]
         },
         {
           name: 'Shopee Homepage',
-          imgSrc: require('~/assets/image/projects/shopee-homepage.jpg'),
+          imgSrc: '/image/projects/shopee-homepage.jpg',
           date: '10-02-2021',
           source: 'https://github.com/nhtuan1609/shopee_homepage',
           website: 'https://shopee-homepage.vercel.app/',
@@ -201,18 +201,18 @@ export default {
             {
               name: 'HTML',
               href: 'https://vi.wikipedia.org/wiki/HTML',
-              logoSrc: require('~/assets/image/skills/html.svg')
+              logoSrc: '/image/skills/html.svg'
             },
             {
               name: 'CSS',
               href: 'https://vi.wikipedia.org/wiki/CSS',
-              logoSrc: require('~/assets/image/skills/css.svg')
+              logoSrc: '/image/skills/css.svg'
             }
           ]
         },
         {
           name: 'W3 Band',
-          imgSrc: require('~/assets/image/projects/w3-band.jpg'),
+          imgSrc: '/image/projects/w3-band.jpg',
           date: '28-01-2021',
           source: 'https://github.com/nhtuan1609/w3_band',
           website: 'https://w3-band.vercel.app/',
@@ -222,12 +222,12 @@ export default {
             {
               name: 'HTML',
               href: 'https://vi.wikipedia.org/wiki/HTML',
-              logoSrc: require('~/assets/image/skills/html.svg')
+              logoSrc: '/image/skills/html.svg'
             },
             {
               name: 'CSS',
               href: 'https://vi.wikipedia.org/wiki/CSS',
-              logoSrc: require('~/assets/image/skills/css.svg')
+              logoSrc: '/image/skills/css.svg'
             }
           ]
         }
