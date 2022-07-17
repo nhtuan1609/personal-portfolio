@@ -5,7 +5,7 @@
     </h1>
     <v-spacer />
     <div v-if="$vuetify.breakpoint.mdAndUp" class="app-bar__sessions">
-      <v-btn v-for="(session, index) in sessions" :key="index" text @click.stop="$router.push(session.path)">
+      <v-btn v-for="(session, index) in sessions" :key="index" text @click="selectSession(session.path)">
         {{ session.name }}
       </v-btn>
       <v-btn v-if="user.email" text color="error" @click="logout">Logout</v-btn>
@@ -34,6 +34,18 @@ export default {
     }
   },
   methods: {
+    /**
+     * handle select session
+     * @param {string} path - session path
+     * @return {void}
+     */
+    selectSession(path) {
+      if (this.$route.path === path) {
+        window.scrollTo({ top: 0 })
+      } else {
+        this.$router.push(path)
+      }
+    },
     /**
      * log out account
      * @return {void}

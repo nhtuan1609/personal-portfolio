@@ -59,7 +59,11 @@ export default {
      * @return {void}
      */
     selectSession(path) {
-      this.$router.push(path)
+      if (this.$route.path === path) {
+        window.scrollTo({ top: 0 })
+      } else {
+        this.$router.push(path)
+      }
       this.$emit('input', false)
     },
     /**
