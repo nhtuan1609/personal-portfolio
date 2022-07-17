@@ -14,6 +14,9 @@ export const getters = {
   },
   getHomeData(state) {
     return state.profile.home
+  },
+  getAboutData(state) {
+    return state.profile.about
   }
 }
 

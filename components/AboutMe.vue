@@ -1,5 +1,5 @@
 <template>
-  <session-content>
+  <session-content v-if="aboutData">
     <template #title>ABOUT ME</template>
     <v-container>
       <v-row>
@@ -14,12 +14,9 @@
         </v-col>
         <v-col cols="12" md="6" class="d-flex align-center">
           <div class="about__information">
-            Hi there! <strong>Nguyen Hoang Tuan</strong> is my full name. I was born and brought up in Can Tho city. And
-            now I am working as a Web Developer.
-            <br />
-            <br />I love learning about new technologies, facing problems and solving them, and how I can use them to
-            create better and scalable products. I am looking for the environment where I can show all my technical
-            skills.
+            <p v-for="(sentence, index) in sentences" :key="index">
+              {{ sentence }}
+            </p>
           </div>
         </v-col>
       </v-row>
@@ -32,7 +29,15 @@ import SessionContent from '~/components/commons/SessionContent.vue'
 
 export default {
   name: 'AboutMe',
-  components: { SessionContent }
+  components: { SessionContent },
+  computed: {
+    aboutData() {
+      return this.$store.getters['profile/getAboutData']
+    },
+    sentences() {
+      return this.aboutData.sentences
+    }
+  }
 }
 </script>
 
