@@ -1,5 +1,5 @@
 <template>
-  <session-content v-if="aboutData">
+  <session-content v-if="about">
     <template #title>ABOUT ME</template>
     <v-container>
       <v-row>
@@ -25,11 +25,11 @@ export default {
   name: 'AboutMe',
   components: { SessionContent },
   computed: {
-    aboutData() {
-      return this.$store.getters['profile/getAboutData']
+    about() {
+      return this.$store.getters['profile/getAbout']
     },
     sentences() {
-      return this.aboutData.sentences
+      return this.about.sentences
     }
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <session-content v-if="homeData">
+  <session-content v-if="introduction">
     <div class="message__title">
       {{ introduction.greeting }}
       <br />
@@ -42,14 +42,11 @@ export default {
   name: 'HomeMessage',
   components: { SessionContent, VueTyper },
   computed: {
-    homeData() {
-      return this.$store.getters['profile/getHomeData']
-    },
     introduction() {
-      return this.homeData.introduction
+      return this.$store.getters['profile/getIntroduction']
     },
     contacts() {
-      return this.$store.getters['profile/getContactsData']
+      return this.$store.getters['profile/getContacts']
     }
   }
 }

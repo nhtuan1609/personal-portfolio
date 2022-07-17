@@ -1,18 +1,22 @@
 <template>
-  <session-content v-if="experienceData">
+  <session-content v-if="experience">
     <template #title>WORK EXPERIENCE</template>
     <div class="experience">
-      <v-card v-for="(experience, index) in experienceData" :key="index" class="group">
+      <v-card v-for="(experienceItem, index) in experience" :key="index" class="group">
         <v-card-title class="group__title">
-          <h2>{{ experience.company }}</h2>
+          <h2>{{ experienceItem.company }}</h2>
         </v-card-title>
         <v-divider />
         <v-card-text class="group__content">
-          <p><strong>Duration: </strong>{{ experience.duration }}</p>
-          <p><strong>Position: </strong>{{ experience.position }}</p>
+          <p><strong>Duration: </strong>{{ experienceItem.duration }}</p>
+          <p><strong>Position: </strong>{{ experienceItem.position }}</p>
           <p><strong>Projects: </strong></p>
-          <v-expansion-panels :value="experience.projects.map((_, index) => index)" :hover="true" :multiple="true">
-            <v-expansion-panel v-for="(project, projectIndex) in experience.projects" :key="projectIndex" class="panel">
+          <v-expansion-panels :value="experienceItem.projects.map((_, index) => index)" :hover="true" :multiple="true">
+            <v-expansion-panel
+              v-for="(project, projectIndex) in experienceItem.projects"
+              :key="projectIndex"
+              class="panel"
+            >
               <v-expansion-panel-header class="panel__header">
                 <strong>{{ projectIndex + 1 }}. {{ project.name }}</strong>
                 <template #actions>
@@ -53,8 +57,8 @@ export default {
   name: 'MyExperience',
   components: { SessionContent },
   computed: {
-    experienceData() {
-      return this.$store.getters['profile/getExperienceData']
+    experience() {
+      return this.$store.getters['profile/getExperience']
     }
   }
 }

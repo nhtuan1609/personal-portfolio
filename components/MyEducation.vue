@@ -1,5 +1,5 @@
 <template>
-  <session-content v-if="educationData">
+  <session-content v-if="education">
     <template #title>EDUCATION</template>
     <div class="experience">
       <!-- universities -->
@@ -69,17 +69,17 @@ export default {
   name: 'MyEducation',
   components: { SessionContent },
   computed: {
-    educationData() {
-      return this.$store.getters['profile/getEducationData']
+    education() {
+      return this.$store.getters['profile/getEducation']
     },
     universities() {
-      return this.educationData.universities
+      return this.education.universities
     },
     courses() {
-      return this.educationData.courses
+      return this.education.courses
     },
     certificates() {
-      return this.educationData.certificates
+      return this.education.certificates
     }
   }
 }

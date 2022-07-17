@@ -12,22 +12,22 @@ export const getters = {
   getUser(state) {
     return state.user
   },
-  getHomeData(state) {
-    return state.profile.home
+  getIntroduction(state) {
+    return state.profile.introduction
   },
-  getAboutData(state) {
+  getAbout(state) {
     return state.profile.about
   },
-  getSkillsData(state) {
+  getSkills(state) {
     return state.profile.skills
   },
-  getExperienceData(state) {
+  getExperience(state) {
     return state.profile.experience
   },
-  getEducationData(state) {
+  getEducation(state) {
     return state.profile.education
   },
-  getContactsData(state) {
+  getContacts(state) {
     return state.profile.contacts
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <session-content v-if="skillsData">
+  <session-content v-if="skills">
     <template #title>SKILLS</template>
     <v-container>
       <v-row>
@@ -41,18 +41,18 @@ export default {
   name: 'MySkills',
   components: { SessionContent },
   computed: {
-    skillsData() {
-      return this.$store.getters['profile/getSkillsData']
+    skills() {
+      return this.$store.getters['profile/getSkills']
     },
     leftGroups() {
       return [
         {
           name: 'Frontend',
-          skills: this.skillsData.frontend
+          skills: this.skills.frontend
         },
         {
           name: 'Backend',
-          skills: this.skillsData.backend
+          skills: this.skills.backend
         }
       ]
     },
@@ -60,11 +60,11 @@ export default {
       return [
         {
           name: 'Programing Languages',
-          skills: this.skillsData.programingLanguage
+          skills: this.skills.programingLanguage
         },
         {
           name: 'Version Control',
-          skills: this.skillsData.versionControl
+          skills: this.skills.versionControl
         }
       ]
     },

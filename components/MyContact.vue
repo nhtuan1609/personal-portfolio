@@ -1,5 +1,5 @@
 <template>
-  <session-content>
+  <session-content v-if="contacts">
     <template #title>CONTACT ME</template>
     <div class="contacts">
       <a v-for="(contact, index) in contacts" :key="index" :href="contact.href" target="_blank">
@@ -20,7 +20,7 @@ export default {
   components: { SessionContent },
   computed: {
     contacts() {
-      return this.$store.getters['profile/getContactsData']
+      return this.$store.getters['profile/getContacts']
     }
   }
 }
