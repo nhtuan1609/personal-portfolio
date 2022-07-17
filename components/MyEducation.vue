@@ -2,9 +2,9 @@
   <session-content>
     <template #title>EDUCATION</template>
     <div class="experience">
-      <v-card v-for="(experience, index) in experienceList" :key="index">
-        <v-card-title>
-          <h2 class="group__title">{{ experience.name }}</h2>
+      <v-card v-for="(experience, index) in experienceList" :key="index" class="group">
+        <v-card-title class="group__title">
+          <h2>{{ experience.name }}</h2>
         </v-card-title>
         <v-divider />
         <v-card-text class="group__content">
@@ -26,9 +26,13 @@
         </v-card-text>
       </v-card>
 
-      <v-card v-for="(group, groupIndex) in certificationGroups" :key="experienceList.length + groupIndex">
-        <v-card-title>
-          <h2 class="group__title">{{ group.name }}</h2>
+      <v-card
+        v-for="(group, groupIndex) in certificationGroups"
+        :key="experienceList.length + groupIndex"
+        class="group"
+      >
+        <v-card-title class="group__title">
+          <h2>{{ group.name }}</h2>
         </v-card-title>
         <v-divider />
         <v-card-text class="group__content">
@@ -103,17 +107,16 @@ export default {
 .experience {
   width: 100%;
   padding: 24px;
-  background-color: var(--color-background-secondary);
+  box-shadow: 0 0 6px black;
+  border-radius: 8px;
   & .v-card + .v-card,
   & .v-card + .group {
     margin-top: 24px;
   }
   & .group {
-    background-color: var(--color-background);
-    text-align: center;
-    padding: 12px 0;
-    margin-bottom: 24px;
-    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
     &__title {
       color: var(--color-text);
       word-break: break-word;
@@ -121,6 +124,11 @@ export default {
     &__content {
       font-size: 1.2rem;
       color: var(--color-text);
+      & p {
+        padding: 0;
+        margin: 0;
+        line-height: 2.4rem;
+      }
       & ul {
         line-height: 2rem;
       }
