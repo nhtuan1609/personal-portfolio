@@ -10,7 +10,7 @@
           md="6"
           class="d-flex flex-column justify-center py-0"
         >
-          <v-card v-for="(group, groupIndex) in skillGroup" :key="groupIndex" class="my-3">
+          <v-card v-for="(group, groupIndex) in skillGroup" :key="groupIndex" class="skill">
             <v-card-title class="justify-center text-h4 font-weight-bold" style="color: var(--color-text)">
               {{ group.name }}
             </v-card-title>
@@ -21,7 +21,7 @@
                 :key="skillIndex"
                 :href="skill.href"
                 target="_blank"
-                class="skill"
+                class="skill__item"
               >
                 <img width="50px" height="50px" :src="skill.logoSrc" alt="logo-image" />
                 <h2>{{ skill.name }}</h2>
@@ -124,20 +124,27 @@ export default {
 
 <style lang="scss" scoped>
 .skill {
-  display: flex;
-  align-items: center;
-  width: fit-content;
-  text-decoration: none;
-  color: var(--color-text);
-  & img {
-    background-color: white;
-    margin-right: 16px;
-  }
-  & + .skill {
-    margin-top: 16px;
-  }
-  &:hover {
-    color: var(--color-text-hover);
+  margin: 12px 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  border-radius: 8px;
+
+  &__item {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    text-decoration: none;
+    color: var(--color-text);
+    & img {
+      background-color: white;
+      margin-right: 16px;
+    }
+    & + .skill__item {
+      margin-top: 16px;
+    }
+    &:hover {
+      color: var(--color-text-hover);
+    }
   }
 }
 </style>
