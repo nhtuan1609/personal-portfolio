@@ -20,6 +20,9 @@ export const getters = {
   },
   getSkillsData(state) {
     return state.profile.skills
+  },
+  getExperienceData(state) {
+    return state.profile.experience
   }
 }
 
