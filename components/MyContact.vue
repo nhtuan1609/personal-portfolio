@@ -20,28 +20,7 @@ export default {
   components: { SessionContent },
   computed: {
     contacts() {
-      return [
-        {
-          name: 'Email',
-          icon: 'mdi-email',
-          href: 'mailto:nhtuan1609@gmail.com'
-        },
-        {
-          name: 'Facebook',
-          icon: 'mdi-facebook',
-          href: 'https://www.facebook.com/nhtuan1609'
-        },
-        {
-          name: 'Github',
-          icon: 'mdi-github',
-          href: 'https://github.com/nhtuan1609'
-        },
-        {
-          name: 'freeCodeCamp',
-          icon: 'mdi-fire-circle',
-          href: 'https://www.freecodecamp.org/nhtuan1609'
-        }
-      ]
+      return this.$store.getters['profile/getContactsData']
     }
   }
 }

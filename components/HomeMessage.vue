@@ -49,7 +49,7 @@ export default {
       return this.homeData.introduction
     },
     contacts() {
-      return this.homeData.contacts
+      return this.$store.getters['profile/getContactsData']
     }
   }
 }
