@@ -2,9 +2,9 @@
   <session-content>
     <template #title>WORK EXPERIENCE</template>
     <div class="experience">
-      <v-card v-for="(experience, index) in experienceList" :key="index">
-        <v-card-title>
-          <h2 class="group__title">{{ experience.name }}</h2>
+      <v-card v-for="(experience, index) in experienceList" :key="index" class="group">
+        <v-card-title class="group__title">
+          <h2>{{ experience.name }}</h2>
         </v-card-title>
         <v-divider />
         <v-card-text class="group__content">
@@ -12,19 +12,19 @@
           <p><strong>Position: </strong>{{ experience.position }}</p>
           <p><strong>Projects: </strong></p>
           <v-expansion-panels :value="experience.projects.map((_, index) => index)" :hover="true" :multiple="true">
-            <v-expansion-panel v-for="(project, projectIndex) in experience.projects" :key="projectIndex">
-              <v-expansion-panel-header color="var(--color-background-secondary)">
-                <strong style="color: black; font-size: 1.2rem">{{ projectIndex + 1 }}. {{ project.name }}</strong>
+            <v-expansion-panel v-for="(project, projectIndex) in experience.projects" :key="projectIndex" class="panel">
+              <v-expansion-panel-header class="panel__header">
+                <strong>{{ projectIndex + 1 }}. {{ project.name }}</strong>
                 <template #actions>
-                  <v-icon color="black">$expand</v-icon>
+                  <v-icon>$expand</v-icon>
                 </template>
               </v-expansion-panel-header>
-              <v-expansion-panel-content class="group__content">
+              <v-expansion-panel-content class="panel__content">
                 <p class="mt-4"><strong>Description: </strong>{{ project.description }}</p>
                 <p><strong>Team size: </strong>{{ project.teamSize }}</p>
                 <p><strong>Role: </strong>{{ project.role }}</p>
                 <p><strong>Responsibilities: </strong></p>
-                <ul style="list-style-type: disc" class="my-4">
+                <ul style="list-style-type: disc">
                   <li
                     v-for="(responsibility, responsibilityIndex) in project.responsibilities"
                     :key="responsibilityIndex"
@@ -52,11 +52,6 @@ import SessionContent from '~/components/commons/SessionContent.vue'
 export default {
   name: 'MyExperience',
   components: { SessionContent },
-  data() {
-    return {
-      // panel: this.experienceList.map((item) =>)
-    }
-  },
   computed: {
     experienceList() {
       return [
@@ -186,17 +181,16 @@ export default {
 .experience {
   width: 100%;
   padding: 24px;
-  background-color: var(--color-background-secondary);
+  box-shadow: 0 0 6px black;
+  border-radius: 8px;
   & .v-card + .v-card,
   & .v-card + .group {
     margin-top: 24px;
   }
   & .group {
-    background-color: var(--color-background);
-    text-align: center;
-    padding: 12px 0;
-    margin-bottom: 24px;
-    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 8px;
     &__title {
       color: var(--color-text);
       word-break: break-word;
@@ -204,9 +198,29 @@ export default {
     &__content {
       font-size: 1.2rem;
       color: var(--color-text);
+      & p {
+        padding: 0;
+        margin: 0;
+        line-height: 2.4rem;
+      }
       & ul {
         line-height: 2rem;
       }
+    }
+  }
+
+  .panel {
+    background-color: transparent;
+    &__header {
+      background-color: rgba(125, 125, 125, 0.3);
+      backdrop-filter: blur(4px);
+      color: var(--color-text);
+      font-size: 1.2rem;
+    }
+
+    &__content {
+      font-size: 1.2rem;
+      color: var(--color-text);
     }
   }
 }
