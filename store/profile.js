@@ -27,6 +27,9 @@ export const getters = {
   getEducation(state) {
     return state.profile.education
   },
+  getProjects(state) {
+    return state.profile.projects
+  },
   getContacts(state) {
     return state.profile.contacts
   }
