@@ -82,14 +82,31 @@ export default {
       return this.$store.getters['profile/getProjects']
     }
   },
+  watch: {
+    projects() {
+      this.initialize()
+    }
+  },
   created() {
-    this.isShowDetails = this.projects.reduce((object, _, index) => {
-      return { ...object, [index]: false }
-    }, {})
+    this.initialize()
   },
   methods: {
+    /**
+     * handle show details
+     * @return {void}
+     */
     toggleDetails(index) {
       this.isShowDetails[index] = !this.isShowDetails[index]
+    },
+    /**
+     * initialize show details flag
+     * @return {void}
+     */
+    initialize() {
+      this.isShowDetails =
+        this.projects?.reduce((object, _, index) => {
+          return { ...object, [index]: false }
+        }, {}) ?? []
     }
   }
 }
