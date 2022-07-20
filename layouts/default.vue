@@ -9,6 +9,7 @@
       </v-container>
     </v-main>
     <snack-bar />
+    <loading-page />
   </v-app>
 </template>
 
@@ -17,10 +18,11 @@ import SnackBar from '~/components/layouts/SnackBar.vue'
 import MyBackground from '~/components/layouts/MyBackground.vue'
 import AppBar from '~/components/layouts/AppBar.vue'
 import NavigationDrawer from '~/components/layouts/NavigationDrawer.vue'
+import LoadingPage from '~/components/layouts/LoadingPage.vue'
 
 export default {
   name: 'DefaultLayout',
-  components: { SnackBar, MyBackground, AppBar, NavigationDrawer },
+  components: { SnackBar, MyBackground, AppBar, NavigationDrawer, LoadingPage },
   data() {
     return {
       drawer: false,
@@ -90,12 +92,14 @@ export default {
   --color-background: rgba(0, 0, 0, 0.3);
   --color-background-light: rgba(125, 125, 125, 0.3);
   --color-background-app-bar: rgba(0, 0, 0, 0.6);
+  --color-background-loading: #333;
   --color-button: rgba(125, 125, 125, 0.2);
   --color-text: #ccc;
   --color-text-hover: #aaa;
   --color-border: #555;
   --color-base: var(--v-_base-base);
   --color-scrollbar-thumb: #888;
+  --color-bicycle: rgb(255, 255, 255);
 }
 
 // thumb scroll
@@ -131,7 +135,7 @@ $t-duration: 600ms;
     display: block;
     width: 100%;
     height: 100%;
-    background-color: #333;
+    background-color: var(--color-background-loading);
     transition-property: opacity, transform;
     transition-timing-function: ease-in-out;
     transition-duration: $t-duration;
@@ -158,6 +162,17 @@ $t-duration: 600ms;
     transform: scaleX(0);
     transform-origin: right;
   }
+}
+
+// loading page transition
+.loading-leave-active {
+  transition: opacity 0.6s linear;
+}
+.loading-leave {
+  opacity: 1;
+}
+.loading-leave-to {
+  opacity: 0;
 }
 </style>
 

@@ -2,6 +2,7 @@
   <div class="background">
     <div class="background-image"></div>
     <div class="background-overlay"></div>
+    <slot name="default"></slot>
   </div>
 </template>
 
