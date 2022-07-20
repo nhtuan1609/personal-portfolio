@@ -1,0 +1,24 @@
+// page transition
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.3s ease-in-out;
+}
+.page-enter,
+.page-leave-to {
+  opacity: 0;
+}
+.page-enter-to,
+.page-leave {
+  opacity: 1;
+}
+
+// loading page transition
+.loading-leave-active {
+  transition: opacity 0.6s linear;
+}
+.loading-leave {
+  opacity: 1;
+}
+.loading-leave-to {
+  opacity: 0;
+}

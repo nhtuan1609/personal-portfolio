@@ -23,7 +23,7 @@ export default {
   mounted() {
     this.$nextTick(() => {
       this.start()
-      setTimeout(() => this.finish(), 3000)
+      setTimeout(() => this.finish(), 2300)
     })
   },
   methods: {

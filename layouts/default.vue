@@ -119,61 +119,6 @@ html {
     border-radius: 4px;
   }
 }
-
-// page transition
-$t-duration: 600ms;
-.page-enter-active,
-.page-leave-active {
-  transition-duration: $t-duration * 2;
-
-  &::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 3;
-    display: block;
-    width: 100%;
-    height: 100%;
-    background-color: var(--color-background-loading);
-    transition-property: opacity, transform;
-    transition-timing-function: ease-in-out;
-    transition-duration: $t-duration;
-  }
-}
-.page-leave {
-  &::before {
-    transform: scaleX(0);
-  }
-}
-.page-leave-to {
-  &::before {
-    transform: scale(1);
-    transform-origin: left;
-  }
-}
-.page-enter {
-  &::before {
-    transform: scaleX(1);
-  }
-}
-.page-enter-to {
-  &::before {
-    transform: scaleX(0);
-    transform-origin: right;
-  }
-}
-
-// loading page transition
-.loading-leave-active {
-  transition: opacity 0.6s linear;
-}
-.loading-leave {
-  opacity: 1;
-}
-.loading-leave-to {
-  opacity: 0;
-}
 </style>
 
 <style lang="scss" scoped>
