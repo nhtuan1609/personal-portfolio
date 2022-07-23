@@ -87,7 +87,7 @@ export default {
 .navigation-drawer {
   &__sessions {
     z-index: 11;
-    margin-top: 64px;
+    margin-top: 56px;
     background-color: var(--color-background);
     backdrop-filter: blur(var(--blur-size));
   }

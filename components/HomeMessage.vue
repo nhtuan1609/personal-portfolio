@@ -4,8 +4,10 @@
       {{ introduction.greeting }}
       <br />
       <div class="d-flex flex-wrap">
-        <div class="message__title-name">{{ introduction.name }}</div>
-        <div class="message__title-work">{{ introduction.position }}</div>
+        <div :class="['message__title-name', { mobile: !$vuetify.breakpoint.mdAndUp }]">{{ introduction.name }}</div>
+        <div :class="['message__title-work', { mobile: !$vuetify.breakpoint.mdAndUp }]">
+          {{ introduction.position }}
+        </div>
       </div>
     </div>
     <div class="message__sub-title">
@@ -63,10 +65,16 @@ export default {
       font-size: 10rem;
       font-weight: bold;
       line-height: 148px;
+      &.mobile {
+        font-size: 8rem;
+      }
     }
 
     &-work {
       font-size: 3rem;
+      &.mobile {
+        margin-top: 8px;
+      }
     }
   }
 
