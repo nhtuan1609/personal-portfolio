@@ -1,7 +1,7 @@
 <template>
   <session-content v-if="projects">
     <template #title>PROJECTS</template>
-    <v-timeline :dense="!$vuetify.breakpoint.mdAndUp">
+    <v-timeline :dense="!$vuetify.breakpoint.mdAndUp" class="timeline">
       <v-timeline-item v-for="(project, index) in projects" :key="index" small color="var(--color-text)" fill-dot>
         <template #opposite>
           <h2 class="font-weight-bold">{{ project.date }}</h2>
@@ -13,7 +13,10 @@
           </v-card-title>
           <v-divider />
           <v-card-text>
-            <img class="project__image" :src="project.imgSrc" alt="project-image" />
+            <div class="project__image-container">
+              <v-img class="project__image" :src="project.imgSrc" alt="project-image" @load="() => onLoaded(index)" />
+              <v-skeleton-loader v-if="isLoadingImages[index]" class="project__image" type="image"></v-skeleton-loader>
+            </div>
             <v-btn class="mt-4" width="100%" color="var(--color-button)" @click="toggleDetails(index)">Details</v-btn>
             <div class="pb-4">
               <v-expand-transition>
@@ -74,7 +77,8 @@ export default {
   components: { SessionContent },
   data() {
     return {
-      isShowDetails: {}
+      isShowDetails: {},
+      isLoadingImages: {}
     }
   },
   computed: {
@@ -92,13 +96,6 @@ export default {
   },
   methods: {
     /**
-     * handle show details
-     * @return {void}
-     */
-    toggleDetails(index) {
-      this.isShowDetails[index] = !this.isShowDetails[index]
-    },
-    /**
      * initialize show details flag
      * @return {void}
      */
@@ -106,13 +103,35 @@ export default {
       this.isShowDetails =
         this.projects?.reduce((object, _, index) => {
           return { ...object, [index]: false }
-        }, {}) ?? []
+        }, {}) ?? {}
+
+      this.isLoadingImages =
+        this.projects?.reduce((object, _, index) => {
+          return { ...object, [index]: true }
+        }, {}) ?? {}
+    },
+    /**
+     * show details
+     * @return {void}
+     */
+    toggleDetails(index) {
+      this.isShowDetails[index] = !this.isShowDetails[index]
+    },
+    /**
+     * hide loading skeleton
+     * @return {void}
+     */
+    onLoaded(index) {
+      this.isLoadingImages[index] = false
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.timeline {
+  width: 100%;
+}
 .project {
   background-color: var(--color-background);
   backdrop-filter: blur(var(--blur-size));
@@ -127,10 +146,21 @@ export default {
     font-weight: bold;
     color: var(--color-text);
   }
-  &__image {
-    display: block;
+  &__image-container {
+    position: relative;
     width: 100%;
+    padding-top: 50%;
+  }
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     border-radius: 4px;
+    :deep(.v-skeleton-loader__image) {
+      height: 100%;
+    }
   }
   &__details {
     background-color: transparent;
