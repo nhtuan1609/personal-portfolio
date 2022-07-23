@@ -28,7 +28,8 @@ export const getters = {
     return state.profile.education
   },
   getProjects(state) {
-    return state.profile.projects
+    const sortedProjects = state.profile.projects ? [...state.profile.projects] : undefined
+    return sortedProjects?.sort((a, b) => new Date(b.date) - new Date(a.date))
   },
   getContacts(state) {
     return state.profile.contacts
